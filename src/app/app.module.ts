@@ -6,10 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
+import { MainMapComponent } from './main-map/main-map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainMapComponent
   ],
   imports: [
     BrowserModule,
