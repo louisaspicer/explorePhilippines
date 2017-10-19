@@ -7,11 +7,13 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MainMapComponent } from './main-map/main-map.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMapComponent
+    MainMapComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

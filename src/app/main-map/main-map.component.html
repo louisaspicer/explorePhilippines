@@ -1,5 +1,27 @@
-<h1>{{ title }}</h1>
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{title}}</h1>
+      <div class="map">
+        <agm-map
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+        >
+          <agm-marker
+            *ngFor="let marker of markers; let i of index"
+            (markerClick)="clickedMarker(marker, i)"
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            [markerDraggable]="marker.draggable"
+          >
+            <agm-info-window>
+              <strong>{{marker.name}}</strong>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
