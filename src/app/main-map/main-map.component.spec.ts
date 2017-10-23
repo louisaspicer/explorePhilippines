@@ -19,7 +19,7 @@ describe('MainMapComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should generate a marker for each destination', () => {
     expect(component).toBeTruthy();
   });
 });

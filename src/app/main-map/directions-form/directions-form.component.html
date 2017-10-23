@@ -1,0 +1,19 @@
+    <div class="col-md-4 directions-form">
+      <h2>Get Directions</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-body">
+            <form (submit)="addMarker()">
+              <label>What's your starting point?</label>
+              <div class="form-group">
+                <input class="form-control" type="text" #search [formControl]="searchControl">
+                  <!--[(ngModel)]="startingPointName"-->
+                  <!--name="startingPointName"-->
+              </div>
+
+              <input type="submit" value="Add Marker">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Marker} from "../../models/marker";
 
 @Component({
   selector: 'app-main-map',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMapComponent {
   title = 'Pick your destination:';
-  zoom = 6;
+  zoom = 5;
   lat = 14.1247729;
   lng = 120.9419521;
   markers: Marker[] = [
@@ -60,11 +61,8 @@ export class MainMapComponent {
   clickedMarker(marker: Marker, index: number): null {
     return null;
   }
-}
 
-interface Marker {
-    name?: string;
-    lat: number;
-    lng: number;
-    draggable: boolean;
+  addMarker(newMarker: Marker) {
+    this.markers.push(newMarker);
+  }
 }
