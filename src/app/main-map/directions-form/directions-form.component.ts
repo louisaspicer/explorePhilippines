@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild} 
 import {FormControl} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
 import {Marker} from "../../../models/marker";
+import {MARKERS} from "../../../models/MARKERS";
 declare const google: any;
 
 @Component({
@@ -16,10 +17,10 @@ export class DirectionsFormComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public markers: Marker[] = MARKERS;
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
-
 
   @Output() onAddMarker = new EventEmitter<Marker>();
 
@@ -30,11 +31,9 @@ export class DirectionsFormComponent implements OnInit {
   ngOnInit() {
     this.searchControl = new FormControl();
 
-    // this.setCurrentPosition();
-
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        // types: ['(regions)'],
+        types: ['(regions)'],
         componentRestrictions: {country: 'ph'}
       });
       autocomplete.addListener('place_changed', () => {
@@ -47,21 +46,12 @@ export class DirectionsFormComponent implements OnInit {
 
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
+          this.startingPointName = place.name;
           this.zoom = 12;
         });
       });
     });
   }
-
-  // private setCurrentPosition() {
-  //   if ('geolocation' in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       this.latitude = position.coords.latitude;
-  //       this.longitude = position.coords.longitude;
-  //       this.zoom = 12;
-  //     });
-  //   }
-  // }
 
   addMarker() {
     console.log('marker to be added');
@@ -73,7 +63,11 @@ export class DirectionsFormComponent implements OnInit {
       draggable: true
     };
 
+    console.log("NEW MARKER NAME:", newMarker.name);
+
     this.onAddMarker.emit(newMarker);
   }
+
+  //emit a selected destination to the main map for the directions directive
 
 }

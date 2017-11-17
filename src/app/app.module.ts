@@ -3,20 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AgmCoreModule } from '@agm/core';
+import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 
 
 import { AppComponent } from './app.component';
 import { MainMapComponent } from './main-map/main-map.component';
 import { HeaderComponent } from './header/header.component';
 import { DirectionsFormComponent } from './main-map/directions-form/directions-form.component';
+import { DirectionsMapDirective } from './directives/google-maps-directions.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMapComponent,
     HeaderComponent,
-    DirectionsFormComponent
+    DirectionsFormComponent,
+    DirectionsMapDirective
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { DirectionsFormComponent } from './main-map/directions-form/directions-f
       libraries: ['places']
     })
   ],
-  providers: [],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

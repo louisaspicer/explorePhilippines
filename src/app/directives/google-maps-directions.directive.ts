@@ -10,11 +10,12 @@ declare var google: any;
 export class DirectionsMapDirective implements OnInit {
   @Input() origin;
   @Input() destination;
+
   constructor (private gmapsApi: GoogleMapsAPIWrapper) {}
 
   ngOnInit() {
-
     this.gmapsApi.getNativeMap().then(map => {
+      console.log(map);
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
       directionsDisplay.setMap(map);
