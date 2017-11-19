@@ -1,6 +1,9 @@
-import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { MainMapComponent } from './main-map/main-map.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -8,28 +11,20 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        MainMapComponent
       ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-  })
+  });
 
   it('should create the app', async(() => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  //
-  // it(`should have as title 'app works!'`, async(() => {
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('app works!');
-  // }));
-  //
-  // it('should render title in a h1 tag', async(() => {
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  // }));
 });

@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
-import {MainMapComponent} from "./components/main-map.co";
-import {DirectionsFormComponent} from "../src/app/main-map/directions-form/directions-form.component";
+import {MainMapComponent} from './components/main-map.co';
+import {DirectionsFormComponent} from './components/directions-form.co';
 
 export class ExplorePhilippinesPage {
   navigateTo() {
@@ -11,11 +11,11 @@ export class ExplorePhilippinesPage {
     return new MainMapComponent();
   }
 
-  getHeader() {
-    return element(by.css('app-header'));
-  }
-
   getDirectionsForm() {
     return new DirectionsFormComponent();
+  }
+
+  getHeader() {
+    return element(by.css('app-header'));
   }
 }

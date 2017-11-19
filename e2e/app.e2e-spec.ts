@@ -9,10 +9,14 @@ describe('explore-philippines App', () => {
   });
 
   it('should show the main map', () => {
-    expect(page.getMainMap().map.isPresent()).toBe(true);
+    expect(page.getMainMap().getRootElement().isPresent()).toBe(true);
   });
 
   it('should show the header', () => {
     expect(page.getHeader().isPresent()).toBe(true);
+  });
+
+  it('should show a directions form', () => {
+    expect(page.getDirectionsForm().getRootElement().isPresent()).toBe(true);
   });
 });

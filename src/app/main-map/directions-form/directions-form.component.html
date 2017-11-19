@@ -3,10 +3,10 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-body">
-            <form (submit)="addMarker()">
+            <form class="starting-point-form" (submit)="addMarker()">
               <label>What's your starting point?</label>
               <div class="form-group">
-                <input class="form-control" type="text" #search [formControl]="searchControl">
+                <input class="starting-point-text" type="text" #search [formControl]="searchControl">
               </div>
               <input class="submit-button" type="submit" value="Add Marker">
             </form>
@@ -17,11 +17,14 @@
         <div class="panel-heading">
           <div class="panel-body">
             <label>Where would you like to go?</label>
-            <div *ngFor="let marker of markers;">
-              <input type="checkbox" id="marker.name" name="destinations" value="marker.name">
+            <div *ngFor="let marker of setMarkers;">
+              <input [(ngModel)]="marker.isSelected" type="checkbox" id="marker.name" name="destinations" value="marker.name">
               <label for="marker.name">{{marker.name}}</label>
             </div>
           </div>
+          <form (submit)="testing()">
+            <input class="submit-button" type="submit" value="Lets Go!">
+          </form>
         </div>
       </div>
     </div>

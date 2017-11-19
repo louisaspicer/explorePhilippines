@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainMapComponent } from './main-map.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('MainMapComponent', () => {
   let component: MainMapComponent;
@@ -8,7 +9,9 @@ describe('MainMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainMapComponent ]
+      declarations: [ MainMapComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
+
     })
     .compileComponents();
   }));
@@ -20,6 +23,6 @@ describe('MainMapComponent', () => {
   });
 
   it('should generate a marker for each destination', () => {
-    expect(component).toBeTruthy();
+    expect(component.markers.length).toEqual(7);
   });
 });

@@ -7,7 +7,7 @@
           [longitude]="lng"
           [zoom]="zoom"
           [disableDefaultUI]="false"
-        ><ng-container appGoogleMapDirections [origin]="origin" [destination]="destination"></ng-container>
+        >
           <agm-marker
             *ngFor="let marker of markers; let i of index"
             (markerClick)="clickedMarker(marker, i)"

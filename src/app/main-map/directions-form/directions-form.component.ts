@@ -1,8 +1,8 @@
-import {Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MapsAPILoader} from '@agm/core';
-import {Marker} from "../../../models/marker";
-import {MARKERS} from "../../../models/MARKERS";
+import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MapsAPILoader } from '@agm/core';
+import { Marker } from '../../../models/marker';
+import { MARKERS } from '../../../models/MARKERS';
 declare const google: any;
 
 @Component({
@@ -17,7 +17,7 @@ export class DirectionsFormComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
-  public markers: Marker[] = MARKERS;
+  public setMarkers: Marker[] = MARKERS;
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
@@ -60,7 +60,8 @@ export class DirectionsFormComponent implements OnInit {
       name: this.startingPointName,
       lat: this.latitude,
       lng: this.longitude,
-      draggable: true
+      draggable: true,
+      isSelected: false
     };
 
     console.log("NEW MARKER NAME:", newMarker.name);
